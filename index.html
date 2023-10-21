@@ -3,9 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="styles.css">
     <title>Exchange Rate App</title>
 </head>
 <body>
-    
+    <div class="main-container">
+        <!-- navbar section -->
+        <nav class="nav-container">
+            <h1>Current Currencies Translation</h1>
+            <ul class="nav-link-container">
+                <li><a target="_blank" href="https://www.bloomberg.com/markets">Markets</a></li>
+                <li><a target="_blank" href="https://www.bloomberg.com/economics">Economics</a></li>
+                <li><a target="_blank" href="https://www.bloomberg.com/industries">Industries</a></li>
+                <li><a target="_blank" href="https://www.bloomberg.com/businessweek">Businessweek</a></li>
+                <li><a target="_blank" href="https://www.bloomberg.com/crypto">Crypto</a></li>
+            </ul>
+        </nav>
+        <!-- rates table section -->
+        <div class="rates-table-box">
+            <div class="table-row table-head">
+                <div class="table-cell first-cell">
+                    <p>Current Currency Rates</p>
+                </div>
+                <div class="table-cell">
+                    <p>Currency</p>
+                </div>
+                <div class="table-cell">
+                    <p>TL</p>
+                </div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell first-cell">
+                    <p>US Dollar Currency</p>
+                </div>
+                <div class="table-cell">
+                    <p>1 USD</p>
+                </div>
+                <div class="table-cell ">
+                    <p class="dollar">TL</p>
+                </div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell first-cell">
+                    <p>British Pound Currency</p>
+                </div>
+                <div class="table-cell">
+                    <p>1 GBP</p>
+                </div>
+                <div class="table-cell">
+                    <p class="pound">TL</p>
+                </div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell first-cell">
+                    <p>European Union Euro Currency</p>
+                </div>
+                <div class="table-cell">
+                    <p>1 EUR</p>
+                </div>
+                <div class="table-cell">
+                    <p class="euro">TL</p>
+                </div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell first-cell">
+                    <p>Swedish Krona Currency</p>
+                </div>
+                <div class="table-cell">
+                    <p>1 SEK</p>
+                </div>
+                <div class="table-cell">
+                    <p class="krona">TL</p>
+                </div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell first-cell">
+                    <p>China Yuan Currency</p>
+                </div>
+                <div class="table-cell">
+                    <p>1 CNY</p>
+                </div>
+                <div class="table-cell">
+                    <p class="yuan">TL</p>
+                </div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell first-cell">
+                    <p>Japanese Yen Currency</p>
+                </div>
+                <div class="table-cell">
+                    <p>1 JPY</p>
+                </div>
+                <div class="table-cell">
+                    <p class="yen">TL</p>
+                </div>
+            </div>
+        </div>
+        <!-- converter section -->
+        <div class="converter-container">
+            <div class="wrapper">
+                <div class="converter-heading">
+                    <h1>Currency Converter</h1>
+                    <p>Please enter the currency you want to convert</p>
+                </div>
+                <form id="form">
+                    <div class="amount">
+                        <p>Enter Amount</p>
+                        <input type="text" value="1" class="amount-input">
+                    </div>
+                    <div class="drop-list-container">
+                        <div class="from-drop-list">
+                            <p>From</p>
+                            
+                                <select class="select-box" name="select" id="from-select"></select>
+                            
+                        </div>
+                        <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+                        <div class="to-drop-list">
+                            <p>To</p>
+                         
+                            <select class="select-box" name="select" id="to-select"></select>
+                        </div>
+                    </div>
+                    <div class="exhange-rate-text">Getting exchange rate...</div>
+                    <button class="form-button">Swap</button>
+                </form>
+            </div>
+        </div>
+        <!-- footer section -->
+        <footer class="footer-container">
+            <p>This page has been created by Onur Ahmet Yemez</p>
+            <p>onuryemez.is@gmail.com</p>
+        </footer>
+    </div>
+    <script src="JavaScript-Files/country-list.js"></script>
+    <script src="JavaScript-Files/script.js"></script>
 </body>
 </html>

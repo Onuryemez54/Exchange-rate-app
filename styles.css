@@ -1,0 +1,181 @@
+*{
+    box-sizing: border-box;
+}
+html {
+    font-size: 16px;
+}
+body {
+    margin:0;
+    padding:0;
+    background-color: #354852;
+}
+:root {
+    --text-color : #fff;
+    --box-shadow-color: rgba(240, 240, 243, 0.3);
+    --primary-color: #074a69;
+}
+.nav-container, .rates-table-box, .converter-container,.footer-container {
+    color: var(--text-color);
+    padding: 15px;
+    
+}
+.main-container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 80px 1fr 60px;
+    grid-template-areas: "nav nav"
+    "rates converter"
+    "foot foot";
+}
+/* Navbar section Css */
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+a:hover {
+    text-decoration: underline;
+}
+.nav-container{
+    grid-area: nav;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border:none;
+    border-bottom:1px solid #beb8b8;
+    box-shadow: 0 1px 3px 0 var(--box-shadow-color);
+}
+.nav-link-container {
+    list-style-type: none;
+    display: flex;
+    justify-content:center;
+    gap:0.9rem;
+    font-size: 1.1rem;
+}
+
+
+
+.footer-container {
+    grid-area: foot;
+}
+
+/* rates table section */
+.rates-table-box {
+    grid-area: rates;
+    margin: 1rem 2rem;
+}
+
+.table-row{
+    display: table;
+    width: 100%;
+    margin:0.8rem auto;
+    padding: 0.7rem 0;
+    box-shadow: 0 1px 3px 0 var(--box-shadow-color);
+}
+.table-cell {
+    display: table-cell;
+    vertical-align: middle;
+    width: 20%;
+    text-align: center;
+    padding: 0.2rem 0;
+}
+.table-head {
+    background: var(--primary-color);
+    box-shadow: none;
+    border-radius: 0.2rem;
+    font-weight: 700;
+}
+.first-cell{
+    text-align: left;
+    padding-left: 0.6rem;
+}
+
+/* converter section */
+
+.converter-container {
+    grid-area: converter;
+    margin:auto auto;
+    
+}
+.wrapper {
+    background-color: var(--primary-color);
+    width: 30rem;
+    padding: 2rem;
+    border-radius: 0.6rem;
+    box-shadow: 1px 1px 3px 5px var(--box-shadow-color);
+}
+.converter-heading h1 {
+    text-align: center;
+    margin-bottom:-7px;
+}
+.converter-heading p {
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom:2.5rem;
+}
+form :where(input,select,button) {
+    width: 100%;
+    border:none;
+    outline: none;
+    border-radius: 5px;
+}
+form p {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+form .amount-input{
+    height: 3rem;
+    font-size: 1rem;
+    padding: 0 1rem;
+}
+form .amount-input:focus{
+    border: 2px solid #00c8d6;
+    padding: 0.8rem;
+}
+.drop-list-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem;
+    margin:-2rem auto 0;
+}
+.drop-list-container .select-box{
+    border-radius: 5px;
+    width: 5rem;
+    height: 3rem;
+    font-size: 1.1rem;
+    text-align: center;
+    box-shadow: 1px 1px 3px 2px var(--box-shadow-color);
+
+}
+.drop-list-container .icon {
+    cursor: pointer;
+    font-size: 1.7rem;
+    margin-top: 2.5rem;
+}
+form .exhange-rate-text {
+    font-size: 1.2rem;
+    padding: 0.7rem;
+    margin:-2rem auto 2rem;
+    text-align: center;
+    box-shadow: 1px 1px 3px 2px var(--box-shadow-color);
+}
+.form-button{
+    height: 3rem;
+    color: var(--text-color);
+    background-color: #207e38;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.4rem;
+    transition: all 1s;
+}
+.form-button:hover{
+    background-color: #107529;
+}
+/* footer section */
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
