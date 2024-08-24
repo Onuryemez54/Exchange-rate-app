@@ -4,19 +4,19 @@ const dropListSelect = document.querySelectorAll('.drop-list-container .select-b
 
 //Placing country currency codes inside select elements
 for (let i = 0; i < dropListSelect.length; i++) {
-    for(currencyCode in countryCurrencyList) {
+    for(key in countryCurrencyList) {
  
         let selected;
         if(i===0) {
-            selected = currencyCode === 'USD' ? 'selected' : '';
+            selected = key === 'USD' ? 'selected' : '';
         } else if (i===1) {
-            selected = currencyCode === 'TRY' ? ' selected' : '';
+            selected = key === 'TRY' ? ' selected' : '';
         }
 
         const optionTag = document.createElement('option');
         optionTag.selected = selected;
-        optionTag.value = `${currencyCode}`;
-        optionTag.innerText = `${currencyCode}`;
+        optionTag.innerText = `${key}`;
+        
         dropListSelect[i].appendChild(optionTag);
     }
 };
@@ -36,9 +36,8 @@ getButton.addEventListener('click',(e) => {
     let amountVal= amount.value;
 
     if(amountVal == '' || amountVal == 0) {
-        amount.value = '1';
         amountVal= 1;
-    }
+    } 
 
     let exchangeRateText = document.querySelector('.exhange-rate-text');
     exchangeRateText.innerText = 'Getting exchange rate...';
@@ -50,7 +49,7 @@ getButton.addEventListener('click',(e) => {
     try {
         const response = await fetch(URL);
         const result = await response.json();
-
+        
         let currentlyExchange = result.conversion_rates[toCurrency.value];
         // console.log(currentlyExchange)
         let totalExchangeRate = (amountVal * currentlyExchange).toFixed(3);
@@ -80,37 +79,36 @@ async function getCurrencyTable() {
 
     const apiKey = '519e5ca6420b42e656620715';
     const UrlTry = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/TRY`;
-
+    const displayCurrencies = ['usd', 'gbp', 'eur', 'sek', 'cny', 'jpy'];
     try {
         const response = await fetch(UrlTry);
         const result = await response.json();
 
         const tryValue = result.conversion_rates.TRY;
-        let usdValue = (tryValue / result.conversion_rates.USD).toFixed(3);
-        let gbpValue = (tryValue / result.conversion_rates.GBP).toFixed(3);
-        let eurValue = (tryValue / result.conversion_rates.EUR).toFixed(3);
-        let sekValue = (tryValue / result.conversion_rates.SEK).toFixed(3);
-        let cnyValue = (tryValue / result.conversion_rates.CNY).toFixed(3);
-        let jpyValue = (tryValue / result.conversion_rates.JPY).toFixed(3);
-
-        let dollar = document.querySelector('.rates-table-box .dollar');
-        dollar.innerText = `${usdValue} TL`;
-        let pound = document.querySelector('.rates-table-box .pound');
-        pound.innerText =  `${gbpValue} TL`;
-        let euro = document.querySelector('.rates-table-box .euro');
-        euro.innerText =  `${eurValue} TL`;
-        let krona = document.querySelector('.rates-table-box .krona');
-        krona.innerText =  `${sekValue} TL`;
-        let yuan = document.querySelector('.rates-table-box .yuan');
-        yuan.innerText =  `${cnyValue} TL`;
-        let yen = document.querySelector('.rates-table-box .yen');
-        yen.innerText =  `${jpyValue} TL`;
+        
+        const tryEquivalentForDisplayCurrencies =  displayCurrencies.map(currencyCode => (
+                {currencyCode: currencyCode, value: getTryRate(tryValue, result.conversion_rates[currencyCode.toUpperCase()])}
+            )
+        );
+        // console.log(tryEquivalentForDisplayCurrencies)
+        
+        for (const key in tryEquivalentForDisplayCurrencies) {
+            setCurrencyCellText(tryEquivalentForDisplayCurrencies[key].currencyCode, tryEquivalentForDisplayCurrencies[key].value);
+        }
         
     } catch(error) {
         console.error(error);
         throw(error);
     }
 }
+
+function getTryRate(tryValue, comparisonCurrencyValue) {
+    return (tryValue / comparisonCurrencyValue).toFixed(3);
+};
+
+function setCurrencyCellText(currencyCode, currencyToTryValue) {
+    return document.querySelector(`#${currencyCode}`).innerText = `${currencyToTryValue} TL`;
+};
 
 
 //window section

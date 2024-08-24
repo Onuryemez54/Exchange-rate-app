@@ -43,7 +43,7 @@
                     <p>1 USD</p>
                 </div>
                 <div class="table-cell ">
-                    <p class="dollar">TL</p>
+                    <p id="usd" class="dollar">TL</p>
                 </div>
             </div>
             <div class="table-row">
@@ -54,7 +54,7 @@
                     <p>1 GBP</p>
                 </div>
                 <div class="table-cell">
-                    <p class="pound">TL</p>
+                    <p id="gbp" class="pound">TL</p>
                 </div>
             </div>
             <div class="table-row">
@@ -65,7 +65,7 @@
                     <p>1 EUR</p>
                 </div>
                 <div class="table-cell">
-                    <p class="euro">TL</p>
+                    <p id="eur" class="euro">TL</p>
                 </div>
             </div>
             <div class="table-row">
@@ -76,7 +76,7 @@
                     <p>1 SEK</p>
                 </div>
                 <div class="table-cell">
-                    <p class="krona">TL</p>
+                    <p id="sek" class="krona">TL</p>
                 </div>
             </div>
             <div class="table-row">
@@ -87,7 +87,7 @@
                     <p>1 CNY</p>
                 </div>
                 <div class="table-cell">
-                    <p class="yuan">TL</p>
+                    <p id="cny" class="yuan">TL</p>
                 </div>
             </div>
             <div class="table-row">
@@ -98,7 +98,7 @@
                     <p>1 JPY</p>
                 </div>
                 <div class="table-cell">
-                    <p class="yen">TL</p>
+                    <p id="jpy" class="yen">TL</p>
                 </div>
             </div>
         </div>
@@ -111,8 +111,8 @@
                 </div>
                 <form id="form">
                     <div class="amount">
-                        <p>Enter Amount</p>
-                        <input type="text" value="1" class="amount-input">
+                        <label>Enter Amount</label>
+                        <input type="number" value="1" class="amount-input">
                     </div>
                     <div class="drop-list-container">
                         <div class="from-drop-list">
@@ -129,7 +129,7 @@
                         </div>
                     </div>
                     <div class="exhange-rate-text">Getting exchange rate...</div>
-                    <button class="form-button">Swap</button>
+                    <button type="submit" class="form-button">Swap</button>
                 </form>
             </div>
         </div>
